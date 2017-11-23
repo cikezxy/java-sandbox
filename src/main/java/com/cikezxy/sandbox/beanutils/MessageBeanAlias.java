@@ -1,8 +1,14 @@
 package com.cikezxy.sandbox.beanutils;
 
-public class MessageBean {
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonAutoDetect
+public class MessageBeanAlias {
+    @JsonProperty("msg_id")
     private String id;
     private String title;
+    @JsonProperty("body")
     private String content;
 
     public String getId() {
