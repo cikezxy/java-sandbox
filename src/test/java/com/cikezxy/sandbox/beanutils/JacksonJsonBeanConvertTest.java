@@ -2,13 +2,12 @@ package com.cikezxy.sandbox.beanutils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
 
-public class JacksonBeanUtilsTest {
+public class JacksonJsonBeanConvertTest {
 
     @Test
     public void beanToJson() throws JsonProcessingException {
@@ -34,7 +33,7 @@ public class JacksonBeanUtilsTest {
 
     @Test
     public void beanToJsonWithAlias() throws JsonProcessingException {
-        MessageBean messageBean = new MessageBean();
+        MessageBeanAlias messageBean = new MessageBeanAlias();
         messageBean.setId("123");
         messageBean.setTitle("message");
         messageBean.setContent("789");
@@ -42,6 +41,15 @@ public class JacksonBeanUtilsTest {
         ObjectMapper mapper = new ObjectMapper();
         String str = mapper.writeValueAsString(messageBean);
         System.out.println(str);
-//        Assert.assertEquals("{\"id\":\"123\",\"title\":\"message\",\"content\":\"789\"}",str);
+        Assert.assertEquals(str,"{\"title\":\"message\",\"msg_id\":\"123\",\"body\":\"789\"}");
+    }
+
+    @Test
+    public void jsonToBeanWithAliasTest() throws IOException {
+        String jsonString = "{\"title\":\"message\",\"msg_id\":\"123\",\"body\":\"789\"}";
+        ObjectMapper mapper = new ObjectMapper();
+        MessageBeanAlias bean = mapper.readValue(jsonString, MessageBeanAlias.class);
+        Assert.assertEquals("123",bean.getId());
+        System.out.println(bean);
     }
 }

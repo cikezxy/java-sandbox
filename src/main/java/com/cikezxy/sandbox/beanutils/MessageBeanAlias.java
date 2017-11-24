@@ -1,15 +1,26 @@
 package com.cikezxy.sandbox.beanutils;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonAutoDetect
-public class MessageBeanAlias {
-    @JsonProperty("msg_id")
+import java.io.Serializable;
+
+public class MessageBeanAlias implements Serializable{
+    @JsonProperty(value = "msg_id",access = JsonProperty.Access.READ_WRITE)
     private String id;
+
     private String title;
-    @JsonProperty("body")
+
+    @JsonProperty(value = "body",access = JsonProperty.Access.READ_WRITE)
     private String content;
+
+    public MessageBeanAlias() {
+    }
+
+    public MessageBeanAlias(String id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+    }
 
     public String getId() {
         return id;
@@ -26,7 +37,6 @@ public class MessageBeanAlias {
     public void setTitle(String title) {
         this.title = title;
     }
-
     public String getContent() {
         return content;
     }
@@ -37,7 +47,7 @@ public class MessageBeanAlias {
 
     @Override
     public String toString() {
-        return "MessageBean{" +
+        return "MessageBeanAlias{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +

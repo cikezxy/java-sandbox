@@ -5,6 +5,15 @@ public class MessageBean {
     private String title;
     private String content;
 
+    public MessageBean() {
+    }
+
+    public MessageBean(String id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+    }
+
     public String getId() {
         return id;
     }
