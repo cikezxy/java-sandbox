@@ -12,4 +12,8 @@ public class SpringBeanUtilsTest {
         BeanUtils.copyProperties(bean,beanAlias);
         System.out.println(beanAlias);
     }
+
+    @Test
+    public void copyFromMap(){
+    }
 }
