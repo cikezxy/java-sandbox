@@ -1,4 +1,4 @@
-package jmx;
+package com.cikezxy.sandbox.jmx;
 
 public class Hello implements HelloMBean {
 

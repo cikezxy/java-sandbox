@@ -1,4 +1,4 @@
-package jmx;
+package com.cikezxy.sandbox.jmx;
 
 import javax.management.*;
 import java.lang.management.ManagementFactory;

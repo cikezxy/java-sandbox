@@ -1,4 +1,4 @@
-package jmx;
+package com.cikezxy.sandbox.jmx;
 
 public interface HelloMBean {
 
