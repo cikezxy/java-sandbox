@@ -2,6 +2,7 @@ package com.cikezxy.sandbox.spring.core.factorybean;
 
 import com.cikezxy.sandbox.spring.core.MyType;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -9,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes = FactoryBeanAppConfig.class)
 @ContextConfiguration(locations = "classpath:FactoryBeanAppConfiguration.xml")
@@ -19,7 +21,7 @@ public class FactoryBeanTest {
     @Resource(name = "second")
     private MyType second;
 
-    @Test
+    @Ignore
     public void test() {
         Assert.assertNotNull(first);
         Assert.assertNotNull(second);
