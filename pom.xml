@@ -54,6 +54,18 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.squirrelframework</groupId>
+            <artifactId>squirrel-foundation</artifactId>
+            <version>0.3.8</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.statemachine/spring-statemachine-core -->
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-core</artifactId>
+            <version>1.2.7.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 

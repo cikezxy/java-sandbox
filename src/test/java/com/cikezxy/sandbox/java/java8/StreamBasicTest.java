@@ -1,4 +1,4 @@
-package com.cikezxy.sandbox.java.java8.stream;
+package com.cikezxy.sandbox.java.java8;
 
 import com.cikezxy.sandbox.java8.stream.Dish;
 import org.junit.Test;
@@ -55,8 +55,8 @@ public class StreamBasicTest {
     @Test
     public void testFlatMap() {
         List list = Arrays.asList("hello", "world").stream()
-                .map(s -> s.split(""))
-                .flatMap(Arrays::stream)
+                .map(s -> s.split("")) //得到Stream<String[]>
+                .flatMap(Arrays::stream) //Arrays.stream得到Stream<Stream<String>>,flatMap得到Stream<String>
                 .distinct()
                 .collect(Collectors.toList());
         System.out.println(list);

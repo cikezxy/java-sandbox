@@ -22,4 +22,9 @@ public class InstanceofAssignableFromTest {
         System.out.println("Comparable isAssignableFrom Integer:"+Comparable.class.isAssignableFrom(Integer.class));
 
     }
+
+    @Test
+    public void test(){
+        System.out.println(Integer.valueOf(100).toString());
+    }
 }
