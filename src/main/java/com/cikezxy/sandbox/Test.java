@@ -2,8 +2,6 @@ package com.cikezxy.sandbox;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Test {
 
@@ -13,5 +11,6 @@ public class Test {
         List list = Arrays.asList(str);
         list.add("aaa");
         System.out.println(list);
+        System.out.println("aaa");
     }
 }
