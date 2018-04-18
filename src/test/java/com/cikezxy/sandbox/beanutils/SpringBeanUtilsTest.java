@@ -15,5 +15,10 @@ public class SpringBeanUtilsTest {
 
     @Test
     public void copyFromMap(){
+
+        MessageBean bean = new MessageBean("123", "title", "content");
+        AnotherBean beanAlias = new AnotherBean();
+        BeanUtils.copyProperties(bean, beanAlias);
+        System.out.println(beanAlias);
     }
 }
