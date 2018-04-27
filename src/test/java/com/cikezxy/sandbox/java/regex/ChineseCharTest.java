@@ -33,4 +33,9 @@ public class ChineseCharTest {
         }
         System.out.println(result);
     }
+
+    @Test
+    public void test() {
+        System.out.println(null + "dddd");
+    }
 }
