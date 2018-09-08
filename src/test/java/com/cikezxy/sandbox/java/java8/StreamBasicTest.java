@@ -1,5 +1,6 @@
 package com.cikezxy.sandbox.java.java8;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -12,12 +13,16 @@ import com.cikezxy.sandbox.java8.stream.Dish;
 
 public class StreamBasicTest {
 
-    public static final List<Dish> menu = Arrays.asList(new Dish("pork", false, 800, Dish.Type.MEAT),
-            new Dish("beef", false, 700, Dish.Type.MEAT), new Dish("chicken", false, 400, Dish.Type.MEAT),
-            new Dish("french fries", true, 530, Dish.Type.OTHER), new Dish("rice", true, 350, Dish.Type.OTHER),
-            new Dish("season fruit", true, 120, Dish.Type.OTHER), new Dish("pizza", true, 550, Dish.Type.OTHER),
-            new Dish("prawns", false, 400, Dish.Type.FISH), new Dish("salmon", false, 450, Dish.Type.FISH));
-
+    List<Dish> menu = Arrays.asList(
+            new Dish("pork", false, 800, Dish.Type.MEAT),
+            new Dish("beef", false, 700, Dish.Type.MEAT),
+            new Dish("chicken", false, 400, Dish.Type.MEAT),
+            new Dish("french fries", true, 530, Dish.Type.OTHER),
+            new Dish("rice", true, 350, Dish.Type.OTHER),
+            new Dish("season fruit", true, 120, Dish.Type.OTHER),
+            new Dish("pizza", true, 550, Dish.Type.OTHER),
+            new Dish("prawns", false, 300, Dish.Type.FISH),
+            new Dish("salmon", false, 450, Dish.Type.FISH) );
     @Test
     public void testGetLowCaloricDishesName() {
         List<String> names = menu.stream().filter(dish -> dish.getCalories() < 400)
@@ -35,6 +40,7 @@ public class StreamBasicTest {
 
     @Test
     public void testLimit() {
+        new File("/").listFiles(File::isHidden);
         System.out.println("testLimit:");
         menu.stream().filter(dish -> dish.getCalories() > 300).limit(3).forEach(System.out::println);
     }
