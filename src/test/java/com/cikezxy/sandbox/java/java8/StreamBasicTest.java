@@ -1,10 +1,7 @@
 package com.cikezxy.sandbox.java.java8;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
@@ -115,6 +112,38 @@ public class StreamBasicTest {
                         .mapToObj(b -> Arrays.asList(a, b, Math.sqrt(a * a + b * b)))
                         .filter(t -> t.get(2).doubleValue() % 1 == 0))
                 .forEach(System.out::println);
+    }
+
+    @Test
+    public void testCollectors(){
+        //最大最小值
+        System.out.println(menu.stream().collect(Collectors.maxBy(Comparator.comparingInt(Dish::getCalories))).orElse(null));
+        System.out.println(menu.stream().collect(Collectors.minBy(Comparator.comparingInt(Dish::getCalories))).orElse(null));
+
+        //计数
+        System.out.println(menu.stream().collect(Collectors.counting()));
+        System.out.println(menu.stream().count());
+
+        // 求和 4200
+        System.out.println(menu.stream().collect(Collectors.summingInt(Dish::getCalories)));
+
+        //统计 IntSummaryStatistics{count=9, sum=4200, min=120, average=466.666667, max=800}
+        System.out.println(menu.stream().collect(Collectors.summarizingInt(Dish::getCalories)));
+
+        //连接字符串 pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon
+        System.out.println(menu.stream().map(Dish::getName).collect(Collectors.joining(", ")));
+
+        // reducing: reducing是一般化的收集器
+        System.out.println(menu.stream().collect(Collectors.reducing(0,Dish::getCalories,(a,b)->a+b)));
+
+        // groupingBy: 分组
+        System.out.println(menu.stream().collect(Collectors.groupingBy(Dish::getType)));
+        // groupingBy: 分组计数
+        System.out.println(menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.counting())));
+       // groupingBy: 每组中热量最高的 collectingAndThen：收集器转换
+        System.out.println(menu.stream().collect(Collectors.groupingBy(Dish::getType,
+                Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Dish::getCalories)),Optional::get))));
+
     }
 
 }
