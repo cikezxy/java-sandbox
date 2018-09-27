@@ -1,9 +1,10 @@
 package com.cikezxy.sandbox.java.java8;
 
-import java.io.File;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
-import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -144,6 +145,12 @@ public class StreamBasicTest {
         System.out.println(menu.stream().collect(Collectors.groupingBy(Dish::getType,
                 Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Dish::getCalories)),Optional::get))));
 
+        // partitioningBy: 一分为二
+        // {false=[pork, beef, chicken, prawns, salmon], true=[french fries, rice, season fruit, pizza]}
+        System.out.println(menu.stream().collect(Collectors.partitioningBy(Dish::isVegetarian)));
+        // {false=pork, true=pizza}
+        System.out.println(menu.stream().collect(Collectors.partitioningBy(Dish::isVegetarian, Collectors
+                .collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Dish::getCalories)), Optional::get))));
     }
 
 }
