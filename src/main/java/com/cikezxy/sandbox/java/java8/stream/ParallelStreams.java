@@ -1,4 +1,4 @@
-package com.cikezxy.sandbox.java8.stream;
+package com.cikezxy.sandbox.java.java8.stream;
 
 import java.util.function.Function;
 import java.util.stream.LongStream;

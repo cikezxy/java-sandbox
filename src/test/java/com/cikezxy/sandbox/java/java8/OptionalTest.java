@@ -1,13 +1,14 @@
 package com.cikezxy.sandbox.java.java8;
 
-import com.cikezxy.sandbox.java8.optional.Car;
-import com.cikezxy.sandbox.java8.optional.Insurance;
-import com.cikezxy.sandbox.java8.optional.Person;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Optional;
+
+import org.junit.Test;
+
+import com.cikezxy.sandbox.java.java8.optional.Car;
+import com.cikezxy.sandbox.java.java8.optional.Insurance;
+import com.cikezxy.sandbox.java.java8.optional.Person;
 
 public class OptionalTest {
 

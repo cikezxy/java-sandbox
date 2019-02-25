@@ -1,7 +1,4 @@
-package com.cikezxy.sandbox.java8.stream;
-
-import java.util.Arrays;
-import java.util.List;
+package com.cikezxy.sandbox.java.java8.stream;
 
 public class Dish {
 

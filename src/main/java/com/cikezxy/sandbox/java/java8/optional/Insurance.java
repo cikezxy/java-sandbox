@@ -1,4 +1,4 @@
-package com.cikezxy.sandbox.java8.optional;
+package com.cikezxy.sandbox.java.java8.optional;
 
 public class Insurance {
 

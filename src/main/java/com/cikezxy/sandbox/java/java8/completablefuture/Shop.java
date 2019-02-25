@@ -1,4 +1,4 @@
-package com.cikezxy.sandbox.java8.completablefuture;
+package com.cikezxy.sandbox.java.java8.completablefuture;
 
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;

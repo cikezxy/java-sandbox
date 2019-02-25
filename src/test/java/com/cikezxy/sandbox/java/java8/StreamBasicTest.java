@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.cikezxy.sandbox.java8.stream.Dish;
+import com.cikezxy.sandbox.java.java8.stream.Dish;
 
 public class StreamBasicTest {
 

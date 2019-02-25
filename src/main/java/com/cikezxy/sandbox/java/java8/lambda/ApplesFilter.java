@@ -1,4 +1,4 @@
-package com.cikezxy.sandbox.java8.lambda;
+package com.cikezxy.sandbox.java.java8.lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;

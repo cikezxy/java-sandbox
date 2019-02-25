@@ -1,4 +1,4 @@
-package com.cikezxy.sandbox.java8.forkjoin;
+package com.cikezxy.sandbox.java.java8.forkjoin;
 
 import java.util.concurrent.RecursiveTask;
 
