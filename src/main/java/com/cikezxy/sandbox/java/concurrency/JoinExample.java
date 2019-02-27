@@ -1,4 +1,4 @@
-package com.cikezxy.sandbox.concurrency;
+package com.cikezxy.sandbox.java.concurrency;
 
 import java.util.Date;
 
