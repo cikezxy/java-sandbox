@@ -12,7 +12,7 @@ public class PhaserExample {
     public static void main(String[] args) {
 
         ExecutorService executorService = Executors.newFixedThreadPool(THREAD_NUM);
-        Phaser phaser = new Phaser(THREAD_NUM);
+        Phaser phaser = new Phaser();
 
         Runnable[] tasks = new Runnable[THREAD_NUM];
         for (int i = 0; i < THREAD_NUM; i++) {
@@ -37,15 +37,16 @@ class PhaserTask implements Runnable {
     public void run() {
         try {
             String name = Thread.currentThread().getName();
-            int i = 1;
 
-            System.out.println(name + " start, round " + i);
+            System.out.println(name + " start, current phase:" + phaser.getPhase());
             TimeUnit.SECONDS.sleep((long) (Math.random() * 10));
-            phaser.arriveAndDeregister();
-            System.out.println(name + " end and wait, round " + i);
+
+            System.out.println(name + " wait others");
             phaser.arriveAndAwaitAdvance();
-            System.out.println(name + " advance, round " + i);
-            i++;
+            System.out.println(name + " wake up, current phase:" + phaser.getPhase());
+
+            phaser.arriveAndDeregister();
+            System.out.println(name + " finish and de-register");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
